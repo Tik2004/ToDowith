@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>ToDo</title>
+{% endblock %}
+{% block body %}
+    <div class="inputofpost">
+	<div class="row" style="margin-left: 0; margin-top: 30px; margin-bottom: 10px;"><h3 id="T">T</h3><h3  id="o1">o</h3> <h3  id="D">D</h3><h3  id="o2">o</h3></div>
+	    <form action='/' method='POST'>
+    		<input class="form-control isDone" name="mission" id="mission" placeholder="What you have to do?" aria-label="Mission">
+		    <br>
+		    <input class="btn btn-success isDone" type="submit" style="width:100px;" value="Add">
+        </form>
+    </div>
+        <div class="allPosatos">
+		<div class="row" style="align-items: center;"><h1 id="T1">T</h1><h1  id="o3">o</h1> <h1  id="D1">D</h1><h1  id="o4">o</h1><h1  id="line">-</h1><h1  id="S">S</h1></div>
+        </div>
+    {% for todo in todoss %}
+    <div>
+        {% if todo.is_completed == True %}
+        <div  class="alert bg-success text-light border isDone" role="alert">
+            <p class="isNotDone">{{todo.mission}}</p>
+            <a type="button" style="position: absolute; right: 4px; bottom:15px;" class="btn text-white isNotDone snovanoch " href="/delete/{{todo.id}}">Delete</a>
+         </div>
+        {% else %}
+        <div  class="alert alert-light border text-dark isNotDone" role="alert">
+            <p class="isDone">{{todo.mission}}</p>
+            <a type="button" style="position: absolute; right: 4px; bottom:15px;" class="btn btn-success isDone" href="/done/{{todo.id}}">Done</a>
+            <a type="button" style="position: absolute; right: 74px; bottom:15px;" class="btn btn-danger isDone" href="/delete/{{todo.id}}">Delete</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+body {
+    font-family: Ubuntu;
+}
+#done {
+    font-family: 'Indie Flower', sans-serif;
+}
+#T1{
+    margin-left:475px;
+}
+.snovanoch {
+    background-color:#f57f17;
+}
+.snovanoch:hover{
+    background-color: #ef6c00  ;
+}
